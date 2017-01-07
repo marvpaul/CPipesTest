@@ -17,7 +17,7 @@ int main() {
 
     pid = fork(); // Fork programm
     if(pid > 0){
-        printf("Hello, I am the child process. I've waited. ");
+        printf("Hello, I am the parent process process. I've waited. ");
         close(fd[1]);
         n = read(fd[0], zeile, MAX_ZEICHEN);
         for(int i = 0; i < n; i++){
@@ -27,7 +27,7 @@ int main() {
 
     } else{
         close(fd[0]);
-        printf("Hello! I am the parent process. Why does the child process wait for me?");
+        printf("Hello! I am the child process. Why does my parent process wait for me?");
         fgets(zeile, MAX_ZEICHEN, stdin);
         write(fd[1], zeile, strlen(zeile));
     }
